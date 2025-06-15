@@ -1,0 +1,8 @@
+*.env
+*.md
+.git
+.gitignore
+.vscode
+__pycache__/
+*.bak
+*.log

@@ -1,0 +1,15 @@
+services:
+  mariadb:
+    build:
+      context: ./requirements/mariadb
+    container_name: mariadb
+    restart: always
+    volumes:
+      - ${DB_VOLUME_PATH}:/var/lib/mysql
+    networks:
+      - inception
+
+
+networks:
+  inception:
+    driver: bridge
