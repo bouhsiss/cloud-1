@@ -19,9 +19,9 @@ nuke_db:
 	@echo "[+] Reading DB_VOLUME_PATH from .env..."
 	@export DB_VOLUME_PATH=$$(grep DB_VOLUME_PATH srcs/.env | cut -d '=' -f2) && \
 	if [ -z "$$DB_VOLUME_PATH" ]; then \
-		echo "❌ DB_VOLUME_PATH is not set in .env"; \
+		echo "DB_VOLUME_PATH is not set in .env"; \
 		exit 1; \
 	fi && \
 	echo "[+] Deleting: $$DB_VOLUME_PATH" && \
 	rm -rf "$$DB_VOLUME_PATH" && \
-	echo "✅ Nuke complete. Database volume directory deleted."
+	echo "Nuke complete. Database volume directory deleted."
