@@ -5,6 +5,9 @@ COMPOSE = docker compose -f srcs/docker-compose.yml --env-file srcs/.env
 up: 
 	$(COMPOSE) up -d --build
 
+up-not-detached:
+	$(COMPOSE) up --build
+
 down:
 	$(COMPOSE) down
 

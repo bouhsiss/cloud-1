@@ -1,10 +1,15 @@
 -- Create the WordPress database
-CREATE DATABASE IF NOT EXISTS wordpress
+CREATE DATABASE IF NOT EXISTS wordpress;
 
--- create a user and grant him all privileges on the database
-DROP USER IF EXISTS 'wp_user'@'%';
-CREATE USER 'wp_user'@'%' IDENTIFIED BY 'wp_password';
-GRANT ALL PRIVILEGES ON wordpress.* TO 'wp_user'@'%';
+-- Create a general WordPress user
+DROP USER IF EXISTS '${WP_USER}'@'%';
+CREATE USER '${WP_USER}'@'%' IDENTIFIED BY '${WP_PASSWORD}';
+GRANT ALL PRIVILEGES ON wordpress.* TO '${WP_USER}'@'%';
+
+-- Create an admin user
+DROP USER IF EXISTS '${WP_ADMIN_USER}'@'%';
+CREATE USER '${WP_ADMIN_USER}'@'%' IDENTIFIED BY '${WP_ADMIN_PASSWORD}';
+GRANT ALL PRIVILEGES ON wordpress.* TO '${WP_ADMIN_USER}'@'%';
 
 -- Apply the privileges
 FLUSH PRIVILEGES;

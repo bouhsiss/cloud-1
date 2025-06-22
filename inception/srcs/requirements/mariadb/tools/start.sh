@@ -24,6 +24,7 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
     fi
 
     echo "[+] Running initialization SQL..."
+    envsubst < /tmp/create_wp_db.sql > /tmp/create_wp_db.sql
     mariadb --socket=/tmp/mysql.sock < /tmp/create_wp_db.sql
 
     echo "[+] Shutting down bootstrap server..."

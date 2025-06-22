@@ -8,6 +8,12 @@ services:
       - ${DB_VOLUME_PATH}:/var/lib/mysql
     networks:
       - inception
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "--silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
 
 
 networks:
